@@ -10,6 +10,9 @@ var app = express();
 app.use('/', bodyParser.json());
 app.use('/', cors());
 
+///////////////// MIDDLEWARE to render all of our public files. Any files of the public folder will be rendered if you use them
+app.use(express.static(__dirname + '/public'));
+
 
 // app.use('/', allowCrossDomain);
 
@@ -62,18 +65,18 @@ app.get('/api/location', function(req, res) {
 
 app.get('/api/hobbies', function(req, res) {
     // console.log(req.query);
-    if (req.query.order === "desc") {
+    if (req.query.order === "asc") {
         hobbies.sort();
-    } else if (req.query.order === "asc") {
+    } else if (req.query.order === "desc") {
         hobbies.sort().reverse();
     }
     res.json({hobbies: hobbies});
 });
 
 app.get('/api/occupations', function(req, res) {
-    if (req.query.order === "desc") {
+    if (req.query.order === "asc") {
         occupations.sort();
-    } else if (req.query.order === "asc") {
+    } else if (req.query.order === "desc") {
         occupations.sort().reverse();
     }
     res.json({occupations: occupations});
@@ -99,36 +102,32 @@ app.get('/api/skills', function(req, res) {
     }
 });
 
-///////////////// PUT REQUESTS
-app.put('/api/name/:id', function(req, res) {
-    var newName = req.params.id;
-    me.fullName = newName;
-    res.send(me);
+///////////////// PUT REQUESTS (put data in JSON format)
+app.put('/api/name', function(req, res) {
+    me = req.body;
+    res.json(me);
 });
 
-app.put('/api/location/:locationId', function(req, res) {
-    var newLocation = req.params.locationId;
-    location.place = newLocation;
-    res.send(location);
+app.put('/api/location', function(req, res) {
+    location = req.body;
+    res.json(location);
 });
 
-///////////////// POST REQUESTS
+///////////////// POST REQUESTS (post data in JSON format)
 
-app.post('/api/hobbies/:hobbyId', function(req, res) {
-    var newHobby = req.params.hobbyId;
-    hobbies.push(newHobby);
-    res.send(hobbies);
+app.post('/api/hobbies', function(req, res) {
+    hobbies.push(req.body.hobbies);
+    res.json({hobbies: hobbies});
 });
 
-app.post('/api/occupations/:occupationId', function(req, res) {
-    var newOccupation = req.params.occupationId;
-    occupations.push(newOccupation);
-    res.send(occupations);
+app.post('/api/occupations', function(req, res) {
+    occupations.push(req.body.occupations);
+    res.json({occupations: occupations});
 });
 
 app.post('/api/skills', function(req, res){
-    skills.push(req.body);
-    res.send(skills);
+    skills.push(req.body.skills);
+    res.json({skills: skills});
 });
 
 

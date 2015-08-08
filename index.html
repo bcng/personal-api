@@ -1,0 +1,43 @@
+<!doctype html>
+<html ng-app="personalAPI">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" type="text/css" href="http://getbootstrap.com/dist/css/bootstrap.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+  </head>
+  <body>
+    <!-- NAVIGATION -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <ul class="nav nav-pills">
+                <li><a href="/#/"> Home </a></li>
+                <li><a href="/#/me"> About Me </a></li>
+                <li><a href="/#/skills"> My Skills </a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Site content will be added here -->
+    <ng-view></ng-view>
+    
+    <!-- ANGULAR LIBRARIES -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular-route.js"></script>
+
+    <!-- MAIN APP.JS FILE -->
+    <script src="scripts/app.js"></script>
+
+    <!-- CONTROLLERS -->
+    <script src="scripts/controllers/homeCtrl.js"></script>
+    <script src="scripts/controllers/meCtrl.js"></script>
+    <script src="scripts/controllers/skillsCtrl.js"></script>
+
+    <!-- SERVICE -->
+    <script src="scripts/services/personalInfoService.js"></script>
+</body>
+</html>
