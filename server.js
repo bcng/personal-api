@@ -117,12 +117,12 @@ app.put('/api/location', function(req, res) {
 
 app.post('/api/hobbies', function(req, res) {
     hobbies.push(req.body.hobbies);
-    res.json({hobbies: hobbies});
+    res.json(hobbies);
 });
 
 app.post('/api/occupations', function(req, res) {
     occupations.push(req.body.occupations);
-    res.json({occupations: occupations});
+    res.json(occupations);
 });
 
 app.post('/api/skills', function(req, res){

@@ -16,6 +16,20 @@ var getOccupationInfo = function() {
 
 getOccupationInfo();
 
+$scope.addNewHobby = function() {
+    personalInfoService.addHobby($scope.hobby).then(function(response) {
+        $scope.hobbies = response;
+        $scope.hobby = "";
+    })
+}
+
+$scope.addNewOccupation = function() {
+    personalInfoService.addOccupation($scope.occupation).then(function(response) {
+        $scope.occupations = response;
+        $scope.occupation = "";
+    })
+}
+
 
 });
 

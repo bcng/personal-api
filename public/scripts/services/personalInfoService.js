@@ -65,6 +65,33 @@ app.service('personalInfoService', function($http, $q) {
         return deferred.promise;
     };
 
+    this.addHobby = function(hobby) {
+        var deferred = $q.defer();
+        $http({
+            method: 'POST',
+            url: 'http://localhost:8234/api/hobbies',
+            data: {
+                hobbies: hobby
+            }
+        }).then(function(response) {
+            deferred.resolve(response.data);
+        });
+        return deferred.promise;
+    }
+
+    this.addOccupation = function(occupation) {
+        var deferred = $q.defer();
+        $http({
+            method: 'POST',
+            url: 'http://localhost:8234/api/occupations',
+            data: {
+                occupations: occupation
+            }
+        }).then(function(response) {
+            deferred.resolve(response.data);
+        });
+        return deferred.promise;
+    }
 
 
 });
