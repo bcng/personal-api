@@ -13,7 +13,7 @@ app.use('/', cors());
 ///////////////// MIDDLEWARE to render all of our public files. Any files of the public folder will be rendered if you use them
 app.use(express.static(__dirname + '/public'));
 
-
+///////////////// Below is what CORS middleware replaces
 // app.use('/', allowCrossDomain);
 
 // var allowCrossDomain = function(req, res, next) {
@@ -32,7 +32,7 @@ var location = {
     place: "New York, NY"
 };
 
-var hobbies = ["hiking", "scuba diving", "CrossFit"];
+var hobbies = ["Hiking", "Scuba Diving", "CrossFit"];
 
 var occupations = ["UX Designer", "Consultant", "Camp Counselor"];
 
@@ -56,11 +56,11 @@ var skills = [{
 
 ///////////////// GET REQUESTS
 app.get('/api/name', function(req, res) {
-    res.json({me: me});
+    res.json(me);
 });
 
 app.get('/api/location', function(req, res) {
-    res.json({location: location});
+    res.json(location);
 });
 
 app.get('/api/hobbies', function(req, res) {
@@ -70,7 +70,7 @@ app.get('/api/hobbies', function(req, res) {
     } else if (req.query.order === "desc") {
         hobbies.sort().reverse();
     }
-    res.json({hobbies: hobbies});
+    res.json(hobbies);
 });
 
 app.get('/api/occupations', function(req, res) {
@@ -79,7 +79,7 @@ app.get('/api/occupations', function(req, res) {
     } else if (req.query.order === "desc") {
         occupations.sort().reverse();
     }
-    res.json({occupations: occupations});
+    res.json(occupations);
 });
 
 app.get('/api/occupations/latest', function(req, res) {
@@ -95,10 +95,10 @@ app.get('/api/skills', function(req, res) {
                 result.push(skills[i]);
             }
         }
-        res.json({skills: result});
+        res.json(result);
     }
     else {
-        res.json({skills: skills});
+        res.json(skills);
     }
 });
 
