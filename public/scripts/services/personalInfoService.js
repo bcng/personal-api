@@ -93,5 +93,20 @@ app.service('personalInfoService', function($http, $q) {
         return deferred.promise;
     }
 
+    this.addSkill = function(skill, exp) {
+        var deferred = $q.defer();
+        $http({
+            method: 'POST',
+            url: 'http://localhost:8234/api/skills',
+            data: {
+                name: skill,
+                experience: exp
+            }
+        }).then(function(response) {
+            deferred.resolve(response.data);
+        });
+        return deferred.promise;
+    }
+
 
 });

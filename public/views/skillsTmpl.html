@@ -1,7 +1,13 @@
 <h1>Find out more about my skills</h1>
+<div> My Skills: </div>
+<li ng-repeat="skill in skills">
+    {{skill.name}} - {{skill.experience}}
+</li>
+<br>
+<div> Add a new skill </div>
 
-<div> Below are a list of my recent skills and level: </div>
-
-<li ng-repeat = "skill in skills">
- {{skill.name}} - {{skill.experience}}
-</li> 
+<form ng-submit="addNewSkill()">
+    <input type="text" ng-model="skill" placeholder="Skill"></input>
+    <input type="text" ng-model="experience" placeholder="Level of experience"></input>
+    <input type="submit" id="submit" value="Submit" />
+</form>

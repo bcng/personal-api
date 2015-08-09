@@ -126,8 +126,11 @@ app.post('/api/occupations', function(req, res) {
 });
 
 app.post('/api/skills', function(req, res){
-    skills.push(req.body.skills);
-    res.json({skills: skills});
+    var newSkill = req.body;
+    newSkill.id = skills.length + 1;
+    skills.push(newSkill);
+    console.log(skills);
+    res.json(skills);
 });
 
 

@@ -1,7 +1,7 @@
 <h1>Find out more about me</h1>
 <div> My Hobbies: </div>
 <form ng-submit="addNewHobby()">
-    <input type="text" ng-model="hobby" placeholder="New hobby"></input>
+    <input type="text" ng-model="hobby" placeholder="Add new hobby"></input>
 </form>
 <li ng-repeat="hobby in hobbies">
     {{hobby}}
@@ -9,7 +9,7 @@
 <br>
 <div> Recent Jobs: </div>
 <form ng-submit="addNewOccupation()">
-    <input type="text" ng-model="occupation" placeholder="New occupation"></input>
+    <input type="text" ng-model="occupation" placeholder="Add new occupation"></input>
 </form>
 <li ng-repeat="occupation in occupations">
     {{occupation}}
