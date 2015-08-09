@@ -66,7 +66,7 @@ app.service('personalInfoService', function($http, $q) {
     };
 
     this.addHobby = function(hobby) {
-        var deferred = $q.defer();
+        var deferred = $q.defer();          
         $http({
             method: 'POST',
             url: 'http://localhost:8234/api/hobbies',

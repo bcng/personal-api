@@ -102,7 +102,7 @@ app.get('/api/skills', function(req, res) {
     }
 });
 
-///////////////// PUT REQUESTS (put data in JSON format)
+///////////////// PUT REQUESTS 
 app.put('/api/name', function(req, res) {
     me = req.body;
     res.json(me);
@@ -113,7 +113,7 @@ app.put('/api/location', function(req, res) {
     res.json(location);
 });
 
-///////////////// POST REQUESTS (post data in JSON format)
+///////////////// POST REQUESTS 
 
 app.post('/api/hobbies', function(req, res) {
     hobbies.push(req.body.hobbies);
@@ -129,7 +129,6 @@ app.post('/api/skills', function(req, res){
     var newSkill = req.body;
     newSkill.id = skills.length + 1;
     skills.push(newSkill);
-    console.log(skills);
     res.json(skills);
 });
 

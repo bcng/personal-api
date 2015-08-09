@@ -1,37 +1,38 @@
 app.controller('meCtrl', function($scope, personalInfoService) {
 
-var getHobbyInfo = function() {
-    personalInfoService.getHobbies().then(function(response) {
-        $scope.hobbies = response;
-    })
-}
+    var getHobbyInfo = function() {
+        personalInfoService.getHobbies().then(function(response) {
+            $scope.hobbies = response;
+        })
+    }
 
-getHobbyInfo();
+    getHobbyInfo();
 
-var getOccupationInfo = function() {
-    personalInfoService.getOccupations().then(function(response) {
-        $scope.occupations = response;
-    })
-}
+    var getOccupationInfo = function() {
+        personalInfoService.getOccupations().then(function(response) {
+            $scope.occupations = response;
+        })
+    }
 
-getOccupationInfo();
+    getOccupationInfo();
 
-$scope.addNewHobby = function() {
-    personalInfoService.addHobby($scope.hobby).then(function(response) {
-        $scope.hobbies = response;
-        $scope.hobby = "";
-    })
-}
+    $scope.addNewHobby = function() {
+        if ($scope.hobby) {
+            personalInfoService.addHobby($scope.hobby).then(function(response) {
+                $scope.hobbies = response;
+                $scope.hobby = "";
+            })
+        }
+    }
 
-$scope.addNewOccupation = function() {
-    personalInfoService.addOccupation($scope.occupation).then(function(response) {
-        $scope.occupations = response;
-        $scope.occupation = "";
-    })
-}
+    $scope.addNewOccupation = function() {
+        if ($scope.occupation) {
+            personalInfoService.addOccupation($scope.occupation).then(function(response) {
+                $scope.occupations = response;
+                $scope.occupation = "";
+            })
+        }
+    }
 
 
 });
-
-
-    
